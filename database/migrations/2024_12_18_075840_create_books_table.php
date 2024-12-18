@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('year');
             $table->integer('quantity');
             $table->timestamps();
-        });
+            });
     }
 
     /**
