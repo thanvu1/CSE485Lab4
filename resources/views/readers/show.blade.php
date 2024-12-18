@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Reader Details</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 <h1>Reader Details</h1>
 <p><strong>Name:</strong> {{ $reader->name }}</p>
 <p><strong>Email:</strong> {{ $reader->email }}</p>
@@ -12,5 +9,4 @@
 <p><strong>Phone:</strong> {{ $reader->phone }}</p>
 
 <a href="{{ route('readers.index') }}">Back to Readers List</a>
-</body>
-</html>
+@endsection
