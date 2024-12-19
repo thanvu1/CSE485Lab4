@@ -6,10 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('borrows', function (Blueprint $table) {
             $table->id();
@@ -20,16 +17,12 @@ return new class extends Migration
             $table->boolean('status')->default(0); // 0: Đang mượn, 1: Đã trả
             $table->timestamps();
 
-       //đây là điểm khác biệt so với BTTH03 mà SV cần lưu ý
-        $table->foreign('reader_id')->references('id')->on('readers');
-        $table->foreign('book_id')->references('id')->on('books');
-    });
+            $table->foreign('reader_id')->references('id')->on('readers')->onDelete('cascade');
+            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('borrows');
     }
