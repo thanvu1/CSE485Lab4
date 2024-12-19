@@ -14,7 +14,7 @@ return new class extends Migration
             $table->unsignedBigInteger('book_id');
             $table->date('borrow_date');
             $table->date('return_date');
-            $table->boolean('status')->default(0); // 0: Đang mượn, 1: Đã trả
+            $table->boolean('status')->default(0); 
             $table->timestamps();
 
             $table->foreign('reader_id')->references('id')->on('readers')->onDelete('cascade');
