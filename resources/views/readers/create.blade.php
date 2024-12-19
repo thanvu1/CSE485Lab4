@@ -22,6 +22,7 @@
                 <input type="text" class="form-control" id="phone" name="phone" required>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Save</button>
+            <a href="{{ route('readers.index') }}" class="btn btn-secondary mt-3">Back to Readers List</a>
         </form>
     </div>
 @endsection

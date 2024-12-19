@@ -37,32 +37,29 @@
             </thead>
             <tbody>
             @foreach ($readers as $reader)
-                <tr>
-                    <td>{{ $reader->id }}</td>
-                    <td>{{ $reader->name }}</td>
-                    <td>{{ $reader->birthday }}</td>
-                    <td>{{ $reader->address }}</td>
-                    <td>{{ $reader->phone }}</td>
-                    <td>
-                        <a href="{{ route('readers.show', $reader->id) }}" class="btn btn-info btn-sm">View</a>
-                        <a href="{{ route('readers.edit', $reader->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <button
+            <tr>
+                <td>{{ $stt++ }}</td>
+                <td>{{ $reader->name }}</td>
+                <td>{{ $reader->birthday }}</td>
+                <td>{{ $reader->address }}</td>
+                <td>{{ $reader->phone }}</td>
+                <td>
+                    <a href="{{ route('readers.show', $reader->id) }}" class="btn btn-info btn-sm">View</a>
+                    <a href="{{ route('readers.edit', $reader->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <button
                             class="btn btn-danger btn-sm"
                             data-bs-toggle="modal"
                             data-bs-target="#confirmDeleteModal"
-                            onclick="setDeleteData('{{ $reader->id }}', '{{ $reader->name }}', '{{ $reader->address }}', '{{ $reader->phone }}')">
+                            data-id="{{ $reader->id }}"
+                            data-name="{{ $reader->name }}"
+                            data-address="{{ $reader->address }}"
+                            data-phone="{{ $reader->phone }}">
                             Delete
-                        </button>
-                    </td>
-                </tr>
+                    </button>
+                </td>
+            </tr>
             @endforeach
-            </tbody>
-        </table>
 
-        {{-- Phân trang --}}
-            <div class="d-flex justify-content-center">
-                {{ $readers->links() }}
-            </div>
             <!-- Modal Xác Nhận Xóa -->
             <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -88,17 +85,34 @@
                     </div>
                 </div>
             </div>
-            <script>
-                function setDeleteData(readerId, name, address, phone) {
-                    // Gắn dữ liệu vào modal
-                    document.getElementById('readerName').textContent = name;
-                    document.getElementById('readerAddress').textContent = address;
-                    document.getElementById('readerPhone').textContent = phone;
 
-                    // Thiết lập action URL cho form xóa
-                    const deleteForm = document.getElementById('deleteReaderForm');
-                    deleteForm.action = `/readers/${readerId}`;
-                }
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const deleteButtons = document.querySelectorAll('[data-bs-target="#confirmDeleteModal"]');
+
+                    deleteButtons.forEach(button => {
+                        button.addEventListener('click', function () {
+                            const readerId = this.getAttribute('data-id');
+                            const readerName = this.getAttribute('data-name');
+                            const readerAddress = this.getAttribute('data-address');
+                            const readerPhone = this.getAttribute('data-phone');
+
+                            document.getElementById('readerName').textContent = readerName;
+                            document.getElementById('readerAddress').textContent = readerAddress;
+                            document.getElementById('readerPhone').textContent = readerPhone;
+
+                            const deleteForm = document.getElementById('deleteReaderForm');
+                            deleteForm.action = `/readers/${readerId}`;
+                        });
+                    });
+                });
             </script>
+            </tbody>
+        </table>
+
+        {{-- Phân trang --}}
+            <div class="d-flex justify-content-center">
+                {{ $readers->links() }}
+            </div>
     </div>
 @endsection

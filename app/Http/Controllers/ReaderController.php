@@ -13,8 +13,9 @@ class ReaderController extends Controller
     public function index()
     {
         // Hiển thị danh sách các Reader, phân trang
-        $readers = Reader::latest()->paginate(5);
-        return view('readers.index', compact('readers'));
+        $readers = Reader::Orderby('updated_at', 'desc')->paginate(5);
+        $stt = ($readers->currentPage() - 1) * $readers->perPage() + 1;
+        return view('readers.index', compact('readers', 'stt'));
     }
 
     /**
