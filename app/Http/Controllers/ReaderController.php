@@ -98,4 +98,8 @@ class ReaderController extends Controller
         return redirect()->route('readers.index')
             ->with('success', 'Reader deleted successfully!');
     }
+    public function confirmDelete(Reader $reader)
+    {
+        return view('reader.confirm-delete', compact('reader'));
+    }
 }
