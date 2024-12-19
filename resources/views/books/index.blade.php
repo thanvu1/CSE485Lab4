@@ -63,8 +63,10 @@
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this book?')">Delete</button>
                             </form>
                         </td>
-                    </tr>
-                @endforeach
+                    </tr> 
+                @endforeach 
+
+                
     
             </tbody>
         </table>
