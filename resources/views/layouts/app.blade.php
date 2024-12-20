@@ -17,24 +17,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link active" aria-current="page" href="{{ route('books.index') }}">Book List</a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('books.create') }}">Add New Book</a>--}}
-{{--                </li>--}}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('books.index') }}">Book List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('books.create') }}">Add New Book</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('readers.index') }}">Reader List</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('readers.create') }}">Add New Reader</a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('borrows.index') }}">Borrow List</a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('borrows.create') }}">New Borrow</a>--}}
-{{--                </li>--}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('borrows.index') }}">Borrow List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('borrows.create') }}">New Borrow</a>
+               </li>
             </ul>
         </div>
     </div>
