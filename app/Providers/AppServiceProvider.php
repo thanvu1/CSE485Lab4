@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+<<<<<<< HEAD
 use Nette\Utils\Paginator;
+=======
+>>>>>>> mergecode
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+<<<<<<< HEAD
         \Illuminate\Pagination\Paginator::useBootstrapFive();
+=======
+>>>>>>> mergecode
     }
 }
