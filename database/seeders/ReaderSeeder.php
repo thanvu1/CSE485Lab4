@@ -15,14 +15,14 @@ class ReaderSeeder extends Seeder
     public function run(): void
     {
         //
-        $faker = Faker::create();
-        foreach (range(1, 20) as $index){
-            Reader::create([
-                'name' => $faker->name,
-                'phone' => $faker->phoneNumber,
-                'address' => $faker->address,
-                'birthday' => $faker->date(),
-            ]);
-        }
+        // $faker = Faker::create();
+        // foreach (range(1, 20) as $index){
+        //     Reader::create([
+        //         'name' => $faker->name,
+        //         'phone' => $faker->phoneNumber,
+        //         'address' => $faker->address,
+        //         'birthday' => $faker->date(),
+        //     ]);
+        // }
     }
 }

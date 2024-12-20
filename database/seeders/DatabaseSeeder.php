@@ -2,15 +2,10 @@
 
 namespace Database\Seeders;
 
-<<<<<<< HEAD
-use App\Models\Reader;
-use App\Models\User;
-=======
 use App\Models\User;
 use App\Models\Book; // Thêm khai báo model Book
 use App\Models\Reader; // Thêm khai báo model Reader
 use App\Models\Borrow; // Thêm khai báo model Borrow
->>>>>>> mergecode
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,14 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-<<<<<<< HEAD
-        // User::factory(10)->create();
-
-        $this->call([
-            ReaderSeeder::class,
-        ]);
-
-=======
         $books = Book::factory(50)->create(); // Tạo 50 cuốn sách
         $readers = Reader::factory(30)->create(); // Tạo 30 độc giả
 
@@ -40,6 +27,5 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
->>>>>>> mergecode
     }
 }

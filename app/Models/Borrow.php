@@ -3,16 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
-=======
 use Illuminate\Database\Eloquent\Factories\HasFactory;
->>>>>>> mergecode
 
 class Borrow extends Model
 {
     //
-<<<<<<< HEAD
-=======
     use HasFactory; 
     public function book()
     {
@@ -22,5 +17,4 @@ class Borrow extends Model
     {
         return $this->belongsTo(Reader::class);
     }
->>>>>>> mergecode
 }
